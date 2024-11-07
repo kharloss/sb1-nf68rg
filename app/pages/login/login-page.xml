@@ -1,0 +1,13 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Fishing Contest" class="bg-blue-600 text-white" />
+    
+    <StackLayout class="p-4">
+        <Label text="Welcome to Fishing Contest" class="text-2xl text-center mb-4" />
+        
+        <TextField hint="Email" text="{{ email }}" keyboardType="email" class="input p-4 mb-2 rounded" />
+        <TextField hint="Password" text="{{ password }}" secure="true" class="input p-4 mb-4 rounded" />
+        
+        <Button text="Login" tap="{{ onLogin }}" class="btn bg-blue-600 text-white p-4 rounded" />
+        <Button text="Register" tap="{{ onRegister }}" class="btn bg-green-600 text-white p-4 mt-2 rounded" />
+    </StackLayout>
+</Page>

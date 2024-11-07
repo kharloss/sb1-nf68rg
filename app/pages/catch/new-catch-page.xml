@@ -1,0 +1,28 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Submit New Catch" />
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Image src="{{ photoSource }}" height="200" stretch="aspectFit" 
+                   class="mb-4" visibility="{{ photoSource ? 'visible' : 'collapsed' }}" />
+            
+            <Button text="Take Photo" tap="{{ onTakePhoto }}" 
+                    class="bg-blue-600 text-white p-4 rounded mb-4" />
+            
+            <TextField hint="Fish Species" text="{{ fishType }}" 
+                      class="input p-4 mb-2 rounded" />
+            
+            <TextField hint="Length (cm)" text="{{ length }}" keyboardType="number"
+                      class="input p-4 mb-2 rounded" />
+            
+            <TextField hint="Weight (kg)" text="{{ weight }}" keyboardType="number"
+                      class="input p-4 mb-4 rounded" />
+            
+            <Label text="{{ locationText }}" textWrap="true" class="mb-4" />
+            
+            <Button text="Submit Catch" tap="{{ onSubmitCatch }}" 
+                    class="bg-green-600 text-white p-4 rounded" 
+                    isEnabled="{{ canSubmit }}" />
+        </StackLayout>
+    </ScrollView>
+</Page>

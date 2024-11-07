@@ -1,0 +1,52 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Fishing Contest">
+        <ActionItem tap="{{ onLogout }}" ios.position="right" android.position="actionBar">
+            <Label text="Logout" class="text-white" />
+        </ActionItem>
+    </ActionBar>
+
+    <TabView selectedIndex="{{ selectedTab }}" class="bg-gray-100">
+        <TabViewItem title="Contest">
+            <GridLayout>
+                <ScrollView>
+                    <StackLayout class="p-4">
+                        <Label text="Current Contest" class="text-xl mb-2" />
+                        <Label text="{{ contestInfo }}" textWrap="true" class="mb-4" />
+                        
+                        <Button text="Submit New Catch" tap="{{ onNewCatch }}" 
+                                class="bg-blue-600 text-white p-4 rounded" />
+                    </StackLayout>
+                </ScrollView>
+            </GridLayout>
+        </TabViewItem>
+
+        <TabViewItem title="Leaderboard">
+            <GridLayout>
+                <ListView items="{{ leaderboardEntries }}" class="list-group">
+                    <ListView.itemTemplate>
+                        <StackLayout class="list-group-item p-4">
+                            <Label text="{{ rank + '. ' + userName }}" class="font-bold" />
+                            <Label text="{{ 'Fish: ' + fishType }}" />
+                            <Label text="{{ 'Length: ' + length + ' cm' }}" />
+                        </StackLayout>
+                    </ListView.itemTemplate>
+                </ListView>
+            </GridLayout>
+        </TabViewItem>
+
+        <TabViewItem title="Profile">
+            <GridLayout>
+                <ScrollView>
+                    <StackLayout class="p-4">
+                        <Label text="{{ userName }}" class="text-2xl mb-2" />
+                        <Label text="{{ 'Total Catches: ' + totalCatches }}" />
+                        <Label text="{{ 'Best Catch: ' + bestCatch }}" />
+                        
+                        <Button text="Edit Profile" tap="{{ onEditProfile }}" 
+                                class="bg-gray-600 text-white p-4 mt-4 rounded" />
+                    </StackLayout>
+                </ScrollView>
+            </GridLayout>
+        </TabViewItem>
+    </TabView>
+</Page>
